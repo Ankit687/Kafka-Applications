@@ -17,8 +17,8 @@ public class ProducerController {
     }
 
     @PostMapping("/publish")
-    public ResponseEntity<String> publish(@RequestParam("message") String message) {
-        producerService.sendMessage(message);
+    public ResponseEntity<String> publish(@RequestParam("key") String key, @RequestParam("message") String message) {
+        producerService.sendMessage(key, message);
         return ResponseEntity.ok("Message sent to Kafka topic.");
     }
 }
